@@ -11,6 +11,5 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-6.0.29/lib/jsp-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-6.0.29/lib/servlet-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="src"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
