@@ -22,7 +22,7 @@ public class LoginUserAction implements IAction {
 		
 		password = CodeUtils.encode(password);
 		/*User user = User.get(id);*/
-		User user = User.get(number);
+		User user = User.getNumber(number);
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
 				request.getSession().setAttribute("authUser", user);
