@@ -29,7 +29,12 @@
 				width : 80,
 				sortable : true
 			} ] ],
-			columns : [ [ {
+			columns : [ [{
+				field : 'key',
+				title : '标识',
+				width : 100,
+				sortable : true
+			}, {
 				field : 'name',
 				title : '姓名',
 				width : 120,

@@ -21,7 +21,7 @@ public class LogoutUserAction implements IAction {
 		} 
 		
 		if (url == null || url.equals("")) {
-			return new JspView("/app/login2.jsp");
+			return new JspView("/app/nameLogin.jsp");
 		} else {
 			url = url.replace("%2F", "/");
 			return new JspView(url);

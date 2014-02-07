@@ -21,6 +21,7 @@ public class User {
 	private String email = "";
 	private String phone = "";
 	private String template = "";
+	private String number = "";
 
 	private static ORMapping<User> mapping = new ResultORMapping<User>();
 
@@ -31,9 +32,9 @@ public class User {
 
 		user.setPassword(CodeUtils.encode(user.getPassword()));
 		return SimpleDaoTemplate.update(
-				"INSERT INTO auth_users VALUES(?, ?, ?, ?, ?, ?)", user.getId(),
+				"INSERT INTO auth_users VALUES(?, ?, ?, ?, ?, ?, ?)", user.getId(),
 				user.getName(), user.getPassword(), user.getEmail(),
-				user.getPhone(), user.getTemplate());
+				user.getPhone(), user.getTemplate(), user.getNumber());
 
 	}
 
@@ -68,9 +69,9 @@ public class User {
 	public static int edit(User user) {
 		user.setPassword(CodeUtils.encode(user.getPassword()));
 		return SimpleDaoTemplate
-				.update("UPDATE auth_users SET name = ?, password = ?, email = ?, phone = ?, template = ? WHERE id = ?",
+				.update("UPDATE auth_users SET name = ?, password = ?, email = ?, phone = ?, template = ?, number = ? WHERE id = ?",
 						user.getName(), user.getPassword(), user.getEmail(),
-						user.getPhone(), user.getTemplate(), user.getId());
+						user.getPhone(), user.getTemplate(),user.getNumber(), user.getId());
 	}
 	
 	public static int updateUserPassword(User user) {
@@ -96,6 +97,16 @@ public class User {
 				null, mapping, User.class);
 	}
 
+	public static User getNumber(String number) {
+		//指定值对象类型(VOClass)。例子VOClass=User
+		//指定表主键(key)。例子:key=id
+		//指定插入表名称(tableName)。例子：如user表，tableName=user
+		//指定O-R映射规则对象。默认mapping
+		return SimpleDaoTemplate.queryOne(
+				"SELECT template FROM auth_users WHERE 1 = 1 and number = '" + number + "'",
+				null, mapping, User.class);
+	}
+	
 	public static ListData<User> getUsers(User user, String start,
 			String offset, String orderBy, String order) {
 
@@ -270,6 +281,16 @@ public class User {
 
 	public void setTemplate(String template) {
 		this.template = template;
+	}
+
+	
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	@Override

@@ -23,6 +23,11 @@
 			action="<%=request.getContextPath()%>/app/auth/user/addUser.action"
 			method="post">
 			<table class="table-form">
+			<tr>
+					<td style="text-align:right"><span style="color: red">*</span>标识号:</td>
+					<td><input id="key" name="key" type="text"></input></td>
+					<td><div id="keyTip"></div></td>
+				</tr>
 				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>登录ID:</td>
 					<td><input id="id" name="id" type="text"></input></td>
