@@ -15,12 +15,14 @@ public class LoginUserAction implements IAction {
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 
-		String id = request.getParameter("id");
+		/*String id = request.getParameter("id");*/
+		String number = request.getParameter("number");
 		String password = request.getParameter("password");
 		String url = request.getParameter("urlValue");
 		
 		password = CodeUtils.encode(password);
-		User user = User.get(id);
+		/*User user = User.get(id);*/
+		User user = User.get(number);
 		if (user != null) {
 			if (user.getPassword().equals(password)) {
 				request.getSession().setAttribute("authUser", user);

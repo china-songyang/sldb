@@ -17,7 +17,7 @@
 			{login();}
 	}
 	function login() {
-		var testCode = $('#testCode').val();
+		/* var testCode = $('#testCode').val(); */
 		
 		/*  判断用户名和密码是否为空
 		var userName = $('#name').val();
@@ -35,14 +35,14 @@
 			
 			$('#pwd').focus();
 			return;			
-		} */ 
+		} 
 		
 		if (testCode.toLowerCase() != code.toLowerCase()) {
 			alert('验证码不正确');
 			
 			$('#testCode').focus();
 			return;
-		}
+		}*/ 
 		
 		$('#loginForm').submit();
 	}

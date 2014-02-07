@@ -73,15 +73,15 @@ img {
 </style>
 </head>
 <body >
-	<div class="login_img" id="glxt">
+	<div class="login_img">
 		<div class="login_text">
 			<form id="loginForm" name="form1" method="post"
 				action="<%=request.getContextPath()%>/app/auth/user/login.do">
-				用户名： <input name="id" id="name" type="text" class="login_input" value="" onkeydown="javascript:press(event);"/> <br />
+				用户名： <input name="number" id="name" type="text" class="login_input" value="" onkeydown="javascript:press(event);"/> <br />
 				密&nbsp;&nbsp;码： <input name="password" id="pwd" type="password" class="login_input" value="" onkeydown="javascript:press(event);"/><br />
 				验证码： <input id="testCode" name="testCode" type="text" class="login_input" value="" onkeydown="javascript:press(event);"/><br /> <br /> 
 				<input name="Submit" type="button" class="login_ok" onclick="login()"value="登录" /> <img id="testCodeImage" alt="验证码" onclick="reload()" style="cursor:hand">
-					<div style="text-align:right;margin-right:30px;"><a href="<%=request.getContextPath()%>/app/login2.jsp" style="text-decoration: none;color: black;">指纹登录</a></div>
+					<%-- <div style="text-align:right;margin-right:30px;"><a href="<%=request.getContextPath()%>/app/login2.jsp" style="text-decoration: none;color: black;">指纹登录</a></div> --%>
 			</form>
 		</div>
 	</div>

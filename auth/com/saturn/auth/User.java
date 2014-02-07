@@ -87,17 +87,17 @@ public class User {
 						user.getPassword(),user.getId());
 	}
 	
-	public static User get(String id) {
+	public static User get(String number) {
 		//指定值对象类型(VOClass)。例子VOClass=User
 		//指定表主键(key)。例子:key=id
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
 		//指定O-R映射规则对象。默认mapping
 		return SimpleDaoTemplate.queryOne(
-				"SELECT * FROM auth_users WHERE 1 = 1 and id = '" + id + "'",
+				"SELECT * FROM auth_users WHERE 1 = 1 and number = '" + number + "'",
 				null, mapping, User.class);
 	}
 
-	public static User getNumber(String number) {
+/*	public static User getNumber(String number) {
 		//指定值对象类型(VOClass)。例子VOClass=User
 		//指定表主键(key)。例子:key=id
 		//指定插入表名称(tableName)。例子：如user表，tableName=user
@@ -105,7 +105,7 @@ public class User {
 		return SimpleDaoTemplate.queryOne(
 				"SELECT template FROM auth_users WHERE 1 = 1 and number = '" + number + "'",
 				null, mapping, User.class);
-	}
+	}*/
 	
 	public static ListData<User> getUsers(User user, String start,
 			String offset, String orderBy, String order) {

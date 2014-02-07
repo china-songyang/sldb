@@ -63,7 +63,7 @@
 	<div region="north" split="false"
 		style="height: 100px; overflow: hidden;">
 		<div class="top_img">
-	    <div class="user-info" style="float:right;margin-right:-150px;">${authUser.name}    　[<a href="<%=request.getContextPath()%>/app/auth/user/logout.action">退出</a>] </div>
+	    <div class="user-info" style="float:right;margin-right:-150px;">${authUser.name}    　[<a href="<%=request.getContextPath()%>/app/nameLogin.jsp">退出</a>] </div>
 		<div class="menu-info"></div>	
 		</div> 
 	</div>

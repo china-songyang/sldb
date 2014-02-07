@@ -15,11 +15,11 @@ public class LoginUserNameAction implements IAction{
 			HttpServletResponse response) {
 		String number = request.getParameter("number");
 
-		User user = User.getNumber(number);
-		if (user.equals("")) {
-			return new JspView("/app/login2.jsp");
+		User user = User.get(number);
+		if (user.getTemplate() == null ||user.getTemplate().equals("")) {
+			return new JspView("/app/login.jsp"); //手动输入密码页面
 		} else {
-			return new JspView("/app/login.jsp");
+			return new JspView("/app/login2.jsp"); //指纹输入密码页面
 		}
 	}
 	
