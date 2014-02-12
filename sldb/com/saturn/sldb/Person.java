@@ -60,12 +60,20 @@ public class Person {
 	private static ORMapping<Person> mapping = new ResultORMapping<Person>();
 	private static Map<String, String> stateMap = new HashMap<String, String>();
 
-	static {
+/*原	static {
 		stateMap.put("创建", "申报");
 		stateMap.put("申报", "初审");
 		stateMap.put("初审", "已核对");
 		stateMap.put("已核对", "评议");
 		stateMap.put("评议", "通过");
+	}*/
+	static {
+		stateMap.put("创建", "审核");
+		stateMap.put("审核", "核对");
+		stateMap.put("核对", "初审");
+		stateMap.put("初审", "抽查");
+		stateMap.put("抽查", "决议");
+		stateMap.put("决议", "通过");
 	}
 
 	public static int add(Person vo) {

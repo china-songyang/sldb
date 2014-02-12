@@ -18,7 +18,7 @@
 				singleSelect : false,//只能选一行
 				url : '<%=request.getContextPath()%>/app/sldb/person/list.action',
 				queryParams : {
-					state : '初审'
+					state : '核对'
 				},
 				idField : 'id',//唯一标识列
 				sortName : 'id',

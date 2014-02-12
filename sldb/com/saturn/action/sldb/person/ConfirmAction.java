@@ -20,9 +20,11 @@ public class ConfirmAction implements IAction {
 	static {
 		urlMap.put("创建", "apply.jsp");
 		urlMap.put("申报", "first.jsp");
-		urlMap.put("初审", "check.jsp");
-		urlMap.put("已核对", "checkOk.jsp");
-		urlMap.put("评议", "end.jsp");
+		urlMap.put("审核", "check.jsp"); //原初审
+		urlMap.put("核对", "checkOk.jsp");//原已核对
+		urlMap.put("初审", "trial.jsp");
+		urlMap.put("抽查", "sample.jsp");
+		urlMap.put("决议", "end.jsp");
 	}
 
 	public IView execute(HttpServletRequest request,

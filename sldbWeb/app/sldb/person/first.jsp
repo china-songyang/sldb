@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>初审低保信息</title>
+	<title>审核低保信息</title>
 	<%@ include file="/app/includes/header.jsp"%>
 	
 	<script type="text/javascript">
 		$(function() {
 			$('#queryTable').datagrid({
-				title : '初审低保信息列表',
+				title : '审核低保信息列表',
 				iconCls : 'icon-datalist',
 				nowrap : false,
 				striped : true, //数据条纹显示
@@ -18,7 +18,7 @@
 				singleSelect : false,//只能选一行
 				url : '<%=request.getContextPath()%>/app/sldb/person/list.action',
 				queryParams : {
-					state : '申报'
+					state : '审核'
 				},
 				idField : 'id',//唯一标识列
 				sortName : 'id',
