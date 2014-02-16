@@ -40,7 +40,7 @@ public class PersonState {
 		//根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
 		return SimpleDaoTemplate.update(connection,
 				"INSERT INTO sldb_person_state(pid, userId, userName, createTime, name, identify, state, note, department, type)" +
-				" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, '1')", 
+				" VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
 				vo.pid,
 				vo.userId,
 				vo.userName,
@@ -142,7 +142,7 @@ public class PersonState {
 	
 	public PersonState(String id, String pid, String userId, String userName,
 			String createTime, String name, String identify, String state,
-			String note, String department) {
+			String note, String department, String type) {
 		super();
 		this.id = id;
 		this.pid = pid;
@@ -154,6 +154,7 @@ public class PersonState {
 		this.state = state;
 		this.note = note;
 		this.department = department;
+		this.type = type;
 	}
 
 	public PersonState() {

@@ -196,7 +196,7 @@ public class Person {
 				PersonState personState = new PersonState(null, id, userId,
 						user.getName(), DateUtils.getSystemTime(), person
 								.getName(), person.getIdentify(), nextState,
-						note, department);
+						note, department, "低保");
 
 				state(connection, id, nextState);
 				PersonState.add(connection, personState);
@@ -228,7 +228,7 @@ public class Person {
 				PersonState personState = new PersonState(null, id, userId,
 						user.getName(), DateUtils.getSystemTime(), person
 								.getName(), person.getIdentify(), nextState,
-						note, department);
+						note, department, "低保");
 
 				state(connection, id, nextState);
 				PersonState.addRefuse(connection, personState);
