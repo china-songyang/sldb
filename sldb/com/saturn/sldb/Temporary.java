@@ -112,7 +112,7 @@ public class Temporary {
 					"SELECT * FROM sldb_tmp_person WHERE 1 = 1",
 					new DymaticCondition().addSimpleCondition(vo,
 							"identify", "name", "sex", "type", "createrDepartment",
-							"createTime","state")
+							"createTime","state", "creater")
 							.addCondition("ORDER BY {0} {1}", orderBy,
 							order), mapping, Temporary.class, start, offset);
 		}

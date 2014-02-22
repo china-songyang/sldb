@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>申请低保信息</title>
+	<title>已申报临时救助信息</title>
 	<%@ include file="/app/includes/header.jsp"%>
 	<script type="text/javascript">
 		$(function() {
 			$('#queryTable').datagrid({
-				title : '申请低保信息列表',
+				title : '已申报临时救助对象信息列表',
 				iconCls : 'icon-datalist',
 				nowrap : false,
 				striped : true, //数据条纹显示

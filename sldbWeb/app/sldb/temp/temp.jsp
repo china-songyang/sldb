@@ -282,7 +282,9 @@
 			<table>
 				<tr align="right">
 					<td>保障类型:</td>
-					<td><input id="type" name="type" type="text"></input></td>
+					<td><select id="type" class="easyui-combobox"
+								name="type" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=sldb.tmp.type" valueField="id"
+								textField="text" editable="false"></select></td>
 					<td>申请人姓名:</td>
 					<td><input id="name" name="name" type="text"></input></td>
 					<td>身份证:</td>

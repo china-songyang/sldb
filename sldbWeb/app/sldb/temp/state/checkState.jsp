@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#queryTable').datagrid({
-				title : '申请低保信息列表',
+				title : '待审批临时救助对象信息列表',
 				iconCls : 'icon-datalist',
 				nowrap : false,
 				striped : true, //数据条纹显示
