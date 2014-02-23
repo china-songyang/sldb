@@ -33,6 +33,7 @@ public class Temporary {
 		private String createrName;
 		private String createrDepartment;
 		private String state;
+		private String inputType;
 		
 		private String userId;
 
@@ -58,11 +59,11 @@ public class Temporary {
 						+ "sex, permanent, nodeType, "
 						+ "home, contact, address, cause, "
 						+ "audit, money, files, createTime, creater, "
-						+ "createrName, state, createrDepartment) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+						+ "createrName, state, createrDepartment, inputType) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 						vo.identify, vo.type, vo.name, vo.sex, vo.permanent,
 						vo.nodeType, vo.home, vo.contact, vo.address, vo.cause,
 						vo.audit, vo.money, vo.files, vo.createTime,
-						vo.creater, vo.createrName, vo.state, vo.createrDepartment);
+						vo.creater, vo.createrName, vo.state, vo.createrDepartment, vo.inputType);
 	}
 
 	public static int edit(Temporary vo) {
@@ -76,11 +77,11 @@ public class Temporary {
 						+ "sex = ?, permanent = ?, nodeType = ?, "
 						+ "home = ?, contact = ?, address = ?, cause = ?, "
 						+ "audit = ?, money = ?, files = ?, createTime = ?, creater = ?, "
-						+ "createrName = ?, state = ?, createrDepartment = ? " + "WHERE id = ?",
+						+ "createrName = ?, state = ?, createrDepartment = ?, inputType = ? " + "WHERE id = ?",
 						vo.identify, vo.type, vo.name, vo.sex, vo.permanent,
 						vo.nodeType, vo.home, vo.contact, vo.address, vo.cause,
 						vo.audit, vo.money, vo.files, vo.createTime,
-						vo.creater, vo.createrName, vo.state, vo.createrDepartment, vo.id);
+						vo.creater, vo.createrName, vo.state, vo.createrDepartment, vo.inputType, vo.id);
 	}
 
 		public static Temporary get(String id) {
@@ -112,7 +113,7 @@ public class Temporary {
 					"SELECT * FROM sldb_tmp_person WHERE 1 = 1",
 					new DymaticCondition().addSimpleCondition(vo,
 							"identify", "name", "sex", "type", "createrDepartment",
-							"createTime","state", "creater")
+							"createTime","state", "creater", "inputType")
 							.addCondition("ORDER BY {0} {1}", orderBy,
 							order), mapping, Temporary.class, start, offset);
 		}
@@ -266,7 +267,7 @@ public class Temporary {
 		}
 		public Temporary(String id, String identify, String type, String name, String sex, String permanent,
 				String nodeType, String home, String contact, String address, String cause, String audit, 
-				String money, String files, String createTime, String creater, String createrName, String state) {
+				String money, String files, String createTime, String creater, String createrName, String state, String createrDepartment,String inputType) {
 			super();
 			this.id = id;
 			this.identify = identify;
@@ -286,6 +287,8 @@ public class Temporary {
 			this.creater = creater;
 			this.createrName = createrName;
 			this.state = state;
+			this.createrDepartment = createrDepartment;
+			this.inputType = inputType;
 		}
 
 		public Temporary() {
@@ -445,10 +448,6 @@ public class Temporary {
 			this.createrDepartment = createrDepartment;
 		}
 
-		@Override
-		public String toString() {
-			return new JSONObject(this).toString();
-		}
 
 		public void setUserId(String userId) {
 			this.userId = userId;
@@ -457,5 +456,19 @@ public class Temporary {
 		public String getUserId() {
 			return userId;
 		}
+		
+		public String getInputType() {
+			return inputType;
+		}
+
+		public void setInputType(String inputType) {
+			this.inputType = inputType;
+		}
+
+		@Override
+		public String toString() {
+			return new JSONObject(this).toString();
+		}
+
 
 }

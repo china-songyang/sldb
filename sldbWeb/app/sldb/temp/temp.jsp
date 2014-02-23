@@ -202,7 +202,7 @@
 							$.messager.alert('提示','只能选择一项','info');
 							return;
 						}
-						window.location.href='<%=request.getContextPath()%>/app/sldb/person/sub/queryPerson.action?id='+rows[0].id; 
+						window.location.href='<%=request.getContextPath()%>/app/sldb/temp/sub/queryTempById.action?id='+rows[0].id; 
 						//查询户主信息
 						return false;//解决IE6的不跳转的bug
 					}
@@ -289,12 +289,15 @@
 					<td><input id="name" name="name" type="text"></input></td>
 					<td>身份证:</td>
 					<td><input id="identify" name="identify" type="text"></input></td>
+				</tr><tr>
 					<td>性别:</td>
 					<td><select id="gender" class="easyui-combobox"
 								name="gender" url="<%=request.getContextPath()%>/app/system/dict/listDictByType.action?type=gender" valueField="id"
 								textField="text" editable="false"></select></td>
 					<td>状态:</td>
 					<td><input id="state" name="state" type="text"></input></td>
+					<td>录入方式:</td>
+					<td><input id="inputType" name="inputType" type="text"></input></td>
 				</tr>
 			</table>
 			<div style="padding: 10px;" >

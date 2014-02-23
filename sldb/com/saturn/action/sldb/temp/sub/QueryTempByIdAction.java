@@ -1,4 +1,4 @@
-package com.saturn.action.sldb.person.sub;
+package com.saturn.action.sldb.temp.sub;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,7 +7,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspView;
 
-public class QueryPersonAction implements IAction{
+public class QueryTempByIdAction implements IAction{
 
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
@@ -16,11 +16,11 @@ public class QueryPersonAction implements IAction{
 /*		
 		PersonSub voPersonSub = PersonSub.get(pid);
 		request.setAttribute("personSub", voPersonSub);*/
-		return new JspView("/app/sldb/person/sub/show.jsp?id=" + pid);
+		return new JspView("/app/sldb/temp/sub/show.jsp?id=" + pid);
 	}
 
 	public String requestMapping() {
-		return "/app/sldb/person/sub/queryPerson.action";
+		return "/app/sldb/temp/sub/queryTempById.action";
 	}
 
 }

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加临时救助信息</title>
+<title>添加临时救助子女信息</title>
 <%@ include file="/app/includes/header.jsp"%>
 <script type="text/javascript">
 	function add() {
@@ -123,10 +123,10 @@
 			department = ((Organization)organizations.get(0)).getName();
 		}
 	%>
-	<div id="panel" class="easyui-panel" title="添加临时救助信息" icon="icon-add-form"
+	<div id="panel" class="easyui-panel" title="添加临时救助子女信息" icon="icon-add-form"
 		collapsible="true" style="padding: 10px;">
 		<form id="addForm" name="addForm"
-			action="<%=request.getContextPath()%>/app/sldb/temp/add.action"
+			action="<%=request.getContextPath()%>/app/sldb/temp/sub/add.action"
 			method="post">
 			<table class="table-form">
 				<tr>
@@ -137,8 +137,13 @@
 					<td><div id="combo_typeTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>申请人姓名:</td>
+					<td style="text-align:right"><span style="color: red">*</span>姓名:</td>
 					<td><input id="name" name="name" type="text"></input></td>
+					<td><div id="nameTip"></div></td>
+				</tr>
+				<tr>
+					<td style="text-align:right"><span style="color: red">*</span>与户主关系:</td>
+					<td><input id="personRelation" name="personRelation" type="text"></input></td>
 					<td><div id="nameTip"></div></td>
 				</tr>
 				<tr>
@@ -181,21 +186,6 @@
 					<td><div id="addressTip"></div></td>
 				</tr>
 				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>家庭基本情况及申请理由:</td>
-					<td><textarea id="cause" name="cause" style="width:250px;height:50px;"></textarea></td>
-					<td><div id="causeTip"></div></td>
-				</tr>
-				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>审批人:</td>
-					<td><input id="audit" name="audit" type="text"></input></td>
-					<td><div id="auditTip"></div></td>
-				</tr>
-				<tr>
-					<td style="text-align:right"><span style="color: red">*</span>审批金额:</td>
-					<td><input id="money" name="money" type="text"></input></td>
-					<td><div id="moneyTip"></div></td>
-				</tr>
-				<tr>
 					<td style="text-align:right"><span style="color: red">*</span>创建者:</td>
 					<td><input id="createName" name="createName" type="text" readonly="readonly" value="<%=user.getName()%>"></input></td>
 					<td><div id="createNameTip"></div></td>
@@ -215,13 +205,12 @@
 					</td>
 				</tr>
 			</table>
-			<input id="files" name="files" type="hidden" value=""></input>
-			<input id="createTime" name="createTime" type="hidden" value="<%=DateUtils.getSystemTime()%>"></input>
 			<input id="createTime" name="createTime" type="hidden" value="<%=DateUtils.getSystemTime()%>"></input>
 			<input id="creater" name="creater" type="hidden" value="<%=user.getId()%>"></input>
 			<input id="createrName" name="createrName" type="hidden" value="<%=user.getName()%>"></input>
 			<input id="state" name="state" type="hidden" value="创建"></input>
 			<input id="inputType" name="inputType" type="hidden" value="手动"></input>
+			<input id="pid" name="pid" type="hidden" value="<%=request.getParameter("pid") %>">
 		</form>
 	</div>
 </body>
