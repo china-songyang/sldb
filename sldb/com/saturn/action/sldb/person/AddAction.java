@@ -16,8 +16,14 @@ public class AddAction implements IAction {
 			HttpServletResponse response) {
 		
 		Person vo = BeanUtils.getBean(request, Person.class);
-		
-		if (Person.add(vo) == 1) {
+		String type=request.getParameter("type");
+		if(type!=null&&type.trim().equals("auto")){
+			if(Person.addAuto(vo)==1){
+				return new JspView("/app/sldb/person/apply.jsp");
+			}else {
+				return new JspErrorView("添加申请低保信息失败");
+			}
+		}else if (Person.add(vo) == 1) {
 			return new JspView("/app/sldb/person/apply.jsp");
 		} else {
 			return new JspErrorView("添加申请低保信息失败");

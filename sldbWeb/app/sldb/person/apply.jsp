@@ -99,10 +99,18 @@
 				rownumbers : true,
 				toolbar : [ {
 					id : 'btnadd',
-					text : '添加',
+					text : '手动添加',
 					iconCls : 'icon-add',
 					handler : function() {
 						window.location.href='<%=request.getContextPath()%>/app/sldb/person/add.jsp';
+						return false;//解决IE6的不跳转的bug
+					}
+				},{
+					id : 'btnadd2',
+					text : '自动添加',
+					iconCls : 'icon-add',
+					handler : function() {
+						window.location.href='<%=request.getContextPath()%>/app/sldb/person/autoAdd.jsp';
 						return false;//解决IE6的不跳转的bug
 					}
 				}, {
@@ -142,6 +150,20 @@
 								window.location.href='<%=request.getContextPath()%>/app/sldb/person/delete.action?ids='+ids.join('__');
 							}
 						});
+						return false;
+					}
+				}, {
+					id : 'btnprint',
+					text : '打印',
+					iconCls : 'icon-edit',
+					handler : function() {
+						var rows = $('#queryTable').datagrid('getSelections');
+						if (rows.length == 0) {
+							$.messager.alert('提示','请选择打印项','info');
+							return;
+						}
+						window.open ('<%=request.getContextPath()%>/app/sldb/person/print.jsp?id='+rows[0].id,'打印页面','height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
+						//window.location.href='<%=request.getContextPath()%>/app/sldb/person/print.jsp?id='+rows[0].id;
 						return false;
 					}
 				}, '-', {

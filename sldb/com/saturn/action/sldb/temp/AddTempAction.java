@@ -8,6 +8,7 @@ import com.saturn.app.web.IAction;
 import com.saturn.app.web.IView;
 import com.saturn.app.web.view.JspErrorView;
 import com.saturn.app.web.view.JspView;
+import com.saturn.sldb.Person;
 import com.saturn.sldb.Temporary;
 
 public class AddTempAction implements IAction{
@@ -15,8 +16,14 @@ public class AddTempAction implements IAction{
 	public IView execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		Temporary vo = BeanUtils.getBean(request, Temporary.class);
-		
-		if(Temporary.add(vo) == 1) {
+		String type=request.getParameter("type");
+		if(type!=null&&type.trim().equals("auto")){
+			if(Temporary.addAuto(vo)==1){
+				return new JspView("/app/sldb/person/apply.jsp");
+			}else {
+				return new JspErrorView("添加申请低保信息失败");
+			}
+		}else if(Temporary.add(vo) == 1) {
 			return new JspView("/app/sldb/temp/temp.jsp");
 		} else{
 			return new JspErrorView("添加信息失败");

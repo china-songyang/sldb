@@ -99,6 +99,16 @@ public class Person {
 						vo.contact, vo.street, vo.address, vo.desc);
 	}
 
+	public static int addAuto(Person vo) {
+		// 指定值对象类型(VOClass)。例子：User
+		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user(id, name, gender)
+		// 根据列的顺序获取值对象的属性值。例子：vo.getId(), vo.getName(), vo.getGender()
+		return SimpleDaoTemplate
+				.update("INSERT INTO sldb_person("
+						+ "identify,name, gender, race,address,creater, createrName, createrDepartment,state,createTime) VALUES(?, ?, ?, ?, ?,?,?,?,?,?)",
+						vo.identify,vo.name, vo.gender, vo.race,  vo.address,vo.getCreater(),vo.getCreaterName(),vo.getCreaterDepartment(),vo.getState(),vo.getCreateTime());
+	}
+	
 	public static int edit(Person vo) {
 		// 指定值对象类型(VOClass)。例子：User
 		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user
