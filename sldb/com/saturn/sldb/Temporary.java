@@ -35,7 +35,6 @@ public class Temporary {
 		private String state;
 		private String inputType;
 		
-		private String userId;
 
 		private static ORMapping<Temporary> mapping = new ResultORMapping<Temporary>();
 		private static Map<String, String> stateMap = new HashMap<String, String>();
@@ -251,7 +250,7 @@ public class Temporary {
 			}
 		}
 
-		public static ListData<Temporary> getAllOld(Temporary vo, String start,
+	/*	public static ListData<Temporary> getAllOld(Temporary vo, String start,
 				String offset, String orderBy, String order) {
 			// 指定值对象类型(VOClass)。例子VOClass=User
 			// 指定插入表名称(tableName)。例子：如user表，tableName=user
@@ -262,7 +261,7 @@ public class Temporary {
 									"and userId = '?' ", vo.getUserId()), mapping,
 							Temporary.class, start, offset);
 		}
-
+*/
 		public static ListData<Temporary> getAllOldWithOutUserId(Temporary vo, String start,
 				String offset, String orderBy, String order) {
 			// 指定值对象类型(VOClass)。例子VOClass=User
@@ -456,15 +455,6 @@ public class Temporary {
 			this.createrDepartment = createrDepartment;
 		}
 
-
-		public void setUserId(String userId) {
-			this.userId = userId;
-		}
-
-		public String getUserId() {
-			return userId;
-		}
-		
 		public String getInputType() {
 			return inputType;
 		}

@@ -149,6 +149,7 @@
 			<input id="createrDepartment" name="createrDepartment"  type="hidden" value="${temp.createrDepartment}"></input>
 			<input id="creater" name="creater" type="hidden" value="${temp.creater}"></input>
 			<input id="state" name="state" type="hidden" value="${temp.state}"></input>
+			<input id="inputType" name="inputType" type="hidden" value="${temp.inputType}"></input>
 		</form>
 	</div>
 </body>
