@@ -87,6 +87,7 @@
 						return '<span><a href="#" onclick="confirmVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/ok.png" width="16" height="16" border="0" /></a>'+
 						'&nbsp&nbsp<a href="#" onclick="editVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/edit.png" width="14" height="14" border="0" /></a>' +
 						'&nbsp&nbsp<a href="#" onclick="deleteVO(\'' + rec.id + '\');"><img src="<%=request.getContextPath()%>/app/themes/icons/cancel.png" width="14" height="14" border="0" /></a>' +
+						'&nbsp&nbsp<a href="#" onclick="viewVO(\'' + rec.id + '\');">预览</a>' +
 						'</span>';
 					}
 				} ] ],
@@ -199,16 +200,15 @@
 					handler : function() {
 						var rows = $('#queryTable').datagrid('getSelections');
 						if (rows.length == 0) {
-							$.messager.alert('提示','请选择操作项','info');
+							$.messager.alert('提示','请选择修改项','info');
 							return;
-						} 
-						
-						var ids = [];
-						for(var i=0;i<rows.length;i++){
-							ids.push(rows[i].id);
+						} else if (rows.length > 1) {
+							$.messager.alert('提示','只能选择一项','info');
+							return;
 						}
-
-						confirmVO(ids.join('__'));
+						confirmVO(rows[0].id);
+						return false;
+						
 					}
 				},
 				{
@@ -280,9 +280,15 @@
 			});
 			return false;
 		}
+		function viewVO(id){
+			window.location.href='<%=request.getContextPath()%>/app/sldb/temp/query2.action?id='+ id+'&view=ok';
+			return false;
+		}
 		
 		function confirmVO(id){
-			window.location.href='<%=request.getContextPath()%>/app/sldb/temp/endTemp.action?id='+ id+'&type=1';
+			//window.location.href='<%=request.getContextPath()%>/app/sldb/temp/endTemp.action?id='+ id+'&type=1';
+			//window.location.href='<%=request.getContextPath()%>/app/sldb/temp/upfile.jsp?id='+ id+'&user='+name;
+			window.location.href='<%=request.getContextPath()%>/app/sldb/temp/query2.action?id='+ id;
 			return false;
 		}
 		function endVO(id){

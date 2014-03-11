@@ -90,6 +90,18 @@ public class Temporary {
 						vo.audit, vo.money, vo.files, vo.createTime,
 						vo.creater, vo.createrName, vo.state, vo.createrDepartment, vo.inputType, vo.id);
 	}
+	
+	public static int editFiles(String id, String files) {
+		// 指定值对象类型(VOClass)。例子：User
+		// 指定插入表名称(tableName)。例子：如user表3个列，tableName=user
+		// 指定修改列信息(modify)。例子：name=?, value=?
+		// 根据修改列的顺序获取值对象的属性值。例子：vo.getName(), vo.getValue(), vo.getId()
+		return SimpleDaoTemplate
+				.update("UPDATE sldb_tmp_person SET "
+						+ " files = ? "
+						+ "WHERE id = ?",
+						files, id);
+	}
 
 		public static Temporary get(String id) {
 			// 指定值对象类型(VOClass)。例子VOClass=User
